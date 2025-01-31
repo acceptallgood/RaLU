@@ -19,7 +19,7 @@ def run_math(args, metadata, record_dir):
     else: i_t, o_t = 0, 0
 
     with open("../instructions/RaLU/math.txt") as sf, open("../instructions/RaLU/final_sys1.txt") as ff1, \
-        open("../instructions/RaLU/final_sys1.txt") as ff2, open("../instructions/PoT_math_example.txt") as pf:
+        open("../instructions/RaLU/final_sys2.txt") as ff2, open("../instructions/PoT_math_example.txt") as pf:
         SYSTEM_MSG, FINAL_SYS1, FINAL_SYS2, pot_example = sf.read().strip(), ff2.read().strip(), pf.read().strip()
     
     for json_obj in stream_jsonl(f'../dataset/{args.dataset}.jsonl'):
