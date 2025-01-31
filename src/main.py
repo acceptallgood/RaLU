@@ -11,7 +11,6 @@ from evalplus.data.utils import stream_jsonl, write_jsonl
 
 def run_math(args, metadata, record_dir):
     done = 0
-    error = []
     if os.path.exists(os.path.join(record_dir, "token_usage.txt")):
         with open(os.path.join(record_dir, "token_usage.txt")) as rf:
             i_t, o_t = rf.read().split(",")
@@ -37,7 +36,7 @@ def run_math(args, metadata, record_dir):
                     prompt_lst=[{"role": "user", "content": f"## Example\n{pot_example}"}, 
                                 {"role": "user", "content": f"Question: {spec}\n#Python code, return ans."}],
                     system=f"You are an expert in writing Python to solve math questions. Wrap your program in a <code></code> block. " +\
-                            "Python code, return ans. No more any test cases or other contents.",
+                            "Python code, return ans. No test cases or any other contents.",
                     model=args.model, max_valid_num=args.max_valid_num,
             )
             i_t += i_token; o_t += o_token
@@ -93,7 +92,6 @@ def run_math(args, metadata, record_dir):
         with open(os.path.join(record_dir, "token_usage.txt"), "w") as wf:
             wf.write(f"{i_t},{o_t}")
     
-    logging.warning(f"{error}")
     return done, (i_t, o_t)
         
 
@@ -121,7 +119,7 @@ def run_code(args, metadata, record_dir):
             logging.info("Write the initial program...")
             program, (i_token, o_token) = llm_write_code(
                     prompt_lst=[{"role": "user", "content": f"## Specification\n{spec}"}],
-                    system=f"You are an expert in {metadata['language']} coding. Wrap your program in a <code></code> block. No more any test cases or other contents.",
+                    system=f"You are an expert in {metadata['language']} coding. Wrap your program in a <code></code> block. No more test cases or any other contents.",
                     entry_point=entry_point,
                     language=metadata['language'],
                     model=args.model, 
