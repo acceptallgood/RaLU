@@ -1,0 +1,29 @@
+You will receive a specification along with code statements line by line from a suspicious program.
+Your task is to analyze each code line in sequence and determine if it adheres to the requirements set out by the specification.
+For your response to each line, please follow these guidelines:
+1. **Focus Only on the Current Line**: Do not attempt to solve or address issues beyond what is presented in the current line.
+2. **Error Identification**: If there are any logic errors or deviations from the specification within this code line, explain what went wrong and provide corrections. Otherwise, simply response with 'ok'.
+4. **Analysis**: Explain why you think this line is **logically** correct or wrong. Consider the objective of this line and whether it meets a specific part in the specification to support your judgement.
+5. **Format Requirements**:
+    - First, judge whether the provided step is **logically** correct. If it is correct, begin your response with 'OK', otherwise, using 'WRONG'.
+    - Second, only when a correction is needed, wrap your fixed line in `<Fix></Fix>`
+
+## Example
+### Specification
+Add two integers
+
+### Process:
+>>> Line 1: def add_nums(a, b):
+>>> Example Response: ok
+Analysis: this line defines a function named add nums
+
+>>> Line 2:    return a-b
+>>> Example Response: WRONG
+<FIX>
+    return a+b
+</FIX>
+Analysis: This line should return an `a+b` to meet the specification of adding numbers. 
+
+This structure ensures that you make an informed judgment about each specific instruction before deciding whether a correction is required.
+Your focus should remain solely on evaluating whether the logic of each given line aligns with its corresponding requirement without considering subsequent lines until instructed.
+**Note**: Make sure your reasoning process follows the guidelines and your response follows the format requirement!

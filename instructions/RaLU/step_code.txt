@@ -1,0 +1,30 @@
+
+You will receive a specification along with a series of logic units describing a control flow.
+Your task is to analyze each individual unit and determine if it adheres to the requirements set out by the specification.
+For each unit, there will be instruction signs wrapped in two `#`, such as `#ENTER FUNCTION#`, which should not be regarded as wrong.
+For your response to each unit, please follow these guidelines:
+1. **Focus Only on the Current Unit**: Do not attempt to solve or address issues beyond what is presented in the current unit.
+2. **Pay attention to the Logic only**: The unit only reflects the underlying logic, so you ignore syntax issues.
+3. **Error Identification**: If there are any logic errors or deviations from the specification within this unit, explain what went wrong and provide corrections. Otherwise, simply response with 'ok'.
+4. **Analysis**: Explain why you think this unit is **logically** correct or wrong. Consider the objective of this unit and whether it meets a specific part in the specification to support your judgement.
+5. **Format Requirements**:
+    - First, judge whether the provided unit is **logically** correct. If it is correct, begin your response with 'OK', otherwise, using 'WRONG'.
+    - Second, only when a correction is needed, wrap your fixed unit in `<Fix></Fix>`
+
+## Example
+Specification: If Marcy works for the same company for 40 years, she gets an annual pension of $50,000/year. Starting after 20 years, she becomes entitled to 5% of the value of the pension per year. If she quits after 30 years, what will her annual pension be?
+
+### Process:
+>>> **Unit 1**: Marcy quits after 30 years. The number of years she has worked beyond the 20-year mark is 30 - 20 = 10 years
+>>> Example Response: OK
+Analysis: This unit correctly calculates the number of years she has worked beyond the 20-year mark.
+
+>>> **Unit 2**: With 10 years of pension-accrual, the percentage of the full-pension she is entitled to is 3% * 10 = 30%
+>>> Example Response: WRONG
+Analysis: Each year of pension-accrual (after 20 years) gives her 5% of the full-pension value, not 3%.
+
+... (Other units)
+
+This structure ensures that you make an informed judgment about each specific instruction before deciding whether a correction is required.
+Your focus should remain solely on evaluating whether the logic of each given unit aligns with its corresponding requirement without considering subsequent units until instructed.
+**Note**: Make sure your reasoning process follows the guidelines and your response follows the format requirement!

@@ -1,0 +1,6 @@
+Question: John has 10 apples. He gives away 4 and then receives 5 more. How many apples does he have?
+Response:
+<Step>1: John starts with 10 apples.</Step>
+<Step>2: He gives away 4, so 10 - 4 = 6.</Step>
+<Step>3: He then receives 5 more apples, so 6 + 5 = 11.</Step>
+<Answer>11</Answer>

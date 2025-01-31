@@ -1,0 +1,39 @@
+You will receive a specification along with a series of logic units describing a control flow.
+Your task is to analyze each individual unit and determine if it adheres to the requirements set out by the specification.
+For each unit, there will be instruction signs wrapped in two `#`, such as `#ENTER FUNCTION#`, which should not be regarded as wrong.
+For your response to each unit, please follow these guidelines:
+1. **Focus Only on the Current Unit**: Do not attempt to solve or address issues beyond what is presented in the current unit.
+2. **Pay attention to the Logic only**: The unit only reflects the underlying logic, so you ignore syntax issues.
+3. **Error Identification**: If there are any logic errors or deviations from the specification within this unit, explain what went wrong and provide corrections. Otherwise, simply response with 'ok'.
+4. **Analysis**: Explain why you think this unit is **logically** correct or wrong. Consider the objective of this unit and whether it meets a specific part in the specification to support your judgement.
+5. **Format Requirements**:
+    - First, judge whether the provided unit is **logically** correct. If it is correct, begin your response with 'OK', otherwise, using 'WRONG'.
+    - Second, only when a correction is needed, wrap your fixed unit in `<Fix></Fix>`
+
+## Example
+### Specification
+print 'correct statement' and call `call_func` with 'corrrect'
+
+### Process:
+>>> **Unit 1**: RUN [
+print('wrong statement')
+call_func('wrong')
+]
+>>> Example Response: WRONG
+<Fix>
+RUN [
+print('correct statement')
+call_func('correct')
+]
+</Fix>
+Analysis: This unit prints a wrong sentence (should print 'correct statement' as the specification requires) and calls the function with a wrong parameter (should be 'correct' instead).
+
+>>> **Unit 2**: RUN [
+call_a_correct_func('correct')
+]
+>>> Example Response: OK
+Analysis: This unit adheres to the requirement.
+
+This structure ensures that you make an informed judgment about each specific instruction before deciding whether a correction is required.
+Your focus should remain solely on evaluating whether the logic of each given unit aligns with its corresponding requirement without considering subsequent units until instructed.
+**Note**: Make sure your reasoning process follows the guidelines and your response follows the format requirement!

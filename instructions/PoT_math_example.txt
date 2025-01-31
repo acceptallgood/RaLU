@@ -1,0 +1,33 @@
+Question: Kylar went to the store to buy glasses for his new apartment. One glass costs $5, but every second glass costs only 60% of the price. Kylar wants to buy 16 glasses. How much does he need to pay for them?
+# Python code, return ans
+<code>
+num_glasses = 16
+first_glass_cost = 5
+second_glass_cost = 5 * 0.6
+ans = 0
+for i in range(num_glasses):
+    if i % 2 == 0:
+        ans += first_glass_cost
+    else:
+        ans += second_glass_cost
+</code>
+
+Analysis: The code first sets up the necessary variables to represent the number of glasses, the cost of the first glass, and the cost of the second glass.
+The for loop iterates over each glass (from 0 to 15, representing the 16 glasses).
+Inside the loop, it checks if the index i is even or odd. If it's even, it adds the cost of the first glass ($5) to the total cost ans. If it's odd, it adds the cost of the second glass ($3) to ans.
+By the end of the loop, ans contains the sum of the costs of all 16 glasses.
+
+Question: Carlos is planting a lemon tree. The tree will cost $90 to plant. Each year it will grow 7 lemons, which he can sell for $1.5 each. It costs $3 a year to water and feed the tree. How many years will it tak
+e before he starts earning money on the lemon tree?
+# Python code, return ans
+<code>
+total_cost = 90
+cost_of_watering_and_feeding = 3
+cost_of_each_lemon = 1.5
+num_of_lemon_per_year = 7
+ans = 0
+while total_cost > 0:
+    total_cost += cost_of_watering_and_feeding
+    total_cost -= num_of_lemon_per_year * cost_of_each_lemon
+    ans += 1
+</code>
